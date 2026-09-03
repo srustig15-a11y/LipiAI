@@ -7,15 +7,16 @@ import Toolbar from './Toolbar'
 
 export default function DocEditor() {
   const editor = useEditor({
-    extensions: [
-      StarterKit,
-      Underline,
-      TextAlign.configure({ types: ['heading', 'paragraph'] }),
-      Link.configure({ openOnClick: false }),
-    ],
-    content: '<p>Start writing your document here...</p>',
-  })
-
+  extensions: [
+    StarterKit.configure({
+      link: false,
+    }),
+    Underline,
+    TextAlign.configure({ types: ['heading', 'paragraph'] }),
+    Link.configure({ openOnClick: false }),
+  ],
+  content: '<p>Start writing your document here...</p>',
+})
   return (
     <div className="w-full">
       <Toolbar editor={editor} />
